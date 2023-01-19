@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style/pico.min.css" />
+    <link rel="stylesheet" href="style/custom.css" />
+    <title>Trying Pico</title>
+  </head>
+  <body class="container-fluid">
+    <nav>
+      <ul>
+        <li>
+          <a href="/" class="contrast"> <strong>Brand</strong></a>
+        </li>
+      </ul>
+      <ul class="links">
+        <li><a href="/" class="secondary">Home</a></li>
+        <li><a href="#" class="secondary">About Us</a></li>
+        <li><a href="#" class="secondary">Contact Us</a></li>
+        <li role="list" class="secondary">
+          <a href="#" aria-haspopup="listbox" class="secondary">Dropdown</a>
+          <ul role="listbox">
+            <li><a>Action</a></li>
+            <li><a>Another action</a></li>
+            <li><a>Something else here</a></li>
+          </ul>
+        </li>
+        <li><a href="#" role="button">Log In</a></li>
+      </ul>
+      <ul class="menu">
+        <li>
+          <details role="list" dir="rtl">
+            <summary aria-haspopup="listbox">
+              <div class="secondary">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"
+                  />
+                </svg>
+              </div>
+            </summary>
+            <ul>
+              <li><a href="/" class="secondary">Home</a></li>
+              <li><a href="#" class="secondary">About Us</a></li>
+              <li><a href="#" class="secondary">Contact Us</a></li>
+              <li><a href="#" role="button">Log In</a></li>
+            </ul>
+          </details>
+        </li>
+      </ul>
+    </nav>
+    <main class="container">
+      <article>
+        <hgroup>
+          <h1>Login</h1>
+          <h2>BEST LOGIN PAGE EVER!</h2>
+        </hgroup>
+        <form>
+          <lable for="name" class="label">
+            <strong>Name</strong>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              placeholder="Eg. John Doe"
+              required
+              autofocus
+              autocomplete="off"
+            />
+          </lable>
+          <lable for="email" class="label">
+            <strong>Email</strong>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="Eg. johndoe@gmail.com"
+              required
+              autocomplete="off"
+            />
+          </lable>
+          <fieldset>
+            <label for="remember-me">
+              <input
+                type="checkbox"
+                name="remember-me"
+                id="remember-me"
+                role="switch"
+              />
+              Rember Me
+            </label>
+          </fieldset>
+          <div class="grid">
+            <button class="secondary" data-tooltip="Reset Button" type="reset">
+              Reset
+            </button>
+            <button type="submit">Submit</button>
+          </div>
+        </form>
+      </article>
+    </main>
+    <footer>
+      <small>&copy; all copyright reserved <span id="year"></span></small>
+    </footer>
+    <button class="contrast theme-switcher"></button>
+  </body>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+    document.querySelector("form").addEventListener("submit", (event) => {
+      event.preventDefault();
+      console.log(event);
+
+      const submitButton = event.target.querySelector("button[type=submit]");
+      submitButton.setAttribute("aria-busy", "true");
+      setTimeout(() => {
+        submitButton.setAttribute("aria-busy", "false");
+      }, 2000);
+    });
+  </script>
+  <script src="js/theme-switcher.js"></script>
+</html>

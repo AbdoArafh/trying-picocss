@@ -1,0 +1,27 @@
+.label {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.links {
+    display: none;
+}
+
+.theme-switcher {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    border-radius: 100vw;
+    max-width: fit-content;
+    padding: 0.75rem !important;
+}
+
+@media screen and (min-width: 640px) {
+    .links {
+        display: block;
+    }
+    .menu {
+        display: none;
+    }
+}
